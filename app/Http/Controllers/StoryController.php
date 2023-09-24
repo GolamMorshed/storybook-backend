@@ -32,5 +32,23 @@ class StoryController extends Controller
         $stories = Story::where('user_id', $userId)->get();
         return response()->json(['data' => $stories], 200);
     }
+
+    public function update(Request $request, Story $story)
+    {
+        
+        $validatedData = $request->validate([
+            'title' => 'string', 
+            'content' => 'string',
+        ]);
+     
+        $story->update($validatedData);
+        return response()->json(['message' => 'Story updated successfully']);
+    }
+
+    public function destroy(Story $story)
+    {
+        $story->delete();
+        return response()->json(['message' => 'Story deleted successfully']);
+    }
    
 }

@@ -28,3 +28,8 @@ Route::apiResource('stories', StoryController::class);
 
 Route::get('stories/user/{userId}', [StoryController::class, 'getUserStories'])
     ->name('stories.getUserStories');
+
+Route::put('stories/{story}', [StoryController::class, 'update'])->name('stories.update');
+
+Route::delete('stories/{story}', [StoryController::class, 'destroy']);
+
