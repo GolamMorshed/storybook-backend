@@ -38,6 +38,7 @@ class StoryController extends Controller
         
         $validatedData = $request->validate([
             'title' => 'string', 
+            'genre' => 'string',
             'content' => 'string',
         ]);
      
