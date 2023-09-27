@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\NewLoginController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\UserStoryPageController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,4 +33,10 @@ Route::get('stories/user/{userId}', [StoryController::class, 'getUserStories'])
 Route::put('stories/{story}', [StoryController::class, 'update'])->name('stories.update');
 
 Route::delete('stories/{story}', [StoryController::class, 'destroy']);
+
+
+
+Route::post('/user-story-pages', [UserStoryPageController::class, 'store']);
+
+Route::get('user-stories/{user_id}', [UserStoryPageController::class, 'getUserStories']);
 
